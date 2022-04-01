@@ -1,18 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import './App.css';
-import Feeling from '../Feeling/Feeling';
-import Understanding from '../Understanding/Understanding';
-import Support from '../Support/Support';
-import Comments from '../Comments/Comments';
+import Start from  '../Start/Start';
+import Form from '../FeedbackForm/FeedbackForm';
 import Review from '../Review/Review';
 import Admin from '../Admin/Admin';
 import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
 import Navigation from '../Navigation/Navigation';
 
-function App() {
 
+function App() {
   return (
     <Router>
       <div className='App'>
@@ -20,18 +18,10 @@ function App() {
           <h1 className='App-title'>Feedback!</h1>
           <h4>Don't forget it!</h4>
         </header>
-        <Route path='/feeling'>
-          < Feeling/>
+        <Route path='/' exact>
+          < Start/>
         </Route>
-        <Route path='/understanding'>
-          < Understanding/>
-        </Route>
-        <Route path='/support'>
-          < Support/>
-        </Route>
-        <Route path='/comments'>
-          < Comments/>
-        </Route>
+        < Form/>
         <Route path='/review'>
           < Review/>
         </Route>
