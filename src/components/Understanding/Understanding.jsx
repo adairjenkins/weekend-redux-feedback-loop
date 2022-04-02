@@ -1,3 +1,4 @@
+import OneToFiveInput from '../OneToFiveInput/OneToFiveInput';
 import { useHistory } from 'react-router-dom';
 
 function Understanding() {
@@ -6,7 +7,8 @@ function Understanding() {
     return (
         <>
             <h3>UNDERSTANDING COMPONENT</h3>
-            <button onClick={() => history.push('/support')}>BEGIN</button>
+            < OneToFiveInput/>
+            <button onClick={() => history.push('/support')}>NEXT</button>
         </>
     )
 }

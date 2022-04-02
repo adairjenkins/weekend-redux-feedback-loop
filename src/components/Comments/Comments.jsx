@@ -6,7 +6,7 @@ function Comments() {
     return (
         <>
             <h3>COMMENTS COMPONENT</h3>
-            <button onClick={() => history.push('/review')}>BEGIN</button>
+            <button onClick={() => history.push('/review')}>NEXT</button>
         </>
     )
 }

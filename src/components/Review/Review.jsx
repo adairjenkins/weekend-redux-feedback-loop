@@ -6,7 +6,7 @@ function Review() {
     return (
         <>
             <h3>REVIEW COMPONENT</h3>
-            <button onClick={() => history.push('/submission-success')}>BEGIN</button>
+            <button onClick={() => history.push('/submission-success')}>SUBMIT</button>
         </>
     )
 }
