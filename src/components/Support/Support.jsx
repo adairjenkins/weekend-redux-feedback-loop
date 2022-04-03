@@ -1,12 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Support() {
     const history = useHistory();
     const [supportVal, setSupportVal] = useState('');
     const dispatch = useDispatch();
 
+    const supportState = useSelector(store => store.feedbackReducer.support);
+    
     const handleSupportSubmit = (event) => {
         event.preventDefault();
         console.log('handleSupportSubmit func');
@@ -25,7 +27,7 @@ function Support() {
             <form onSubmit={handleSupportSubmit}>
                 <input 
                     required 
-                    placeholder="Choose 1-5" 
+                    placeholder={supportState ? supportState : 'Choose 1-5'} 
                     value={supportVal}
                     onChange={(event) => setSupportVal(event.target.value)}
                 />

@@ -1,12 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function Feeling() {
     const history = useHistory();
     const [feelingVal, setFeelingVal] = useState('');
     const dispatch = useDispatch();
+
+    const feelingState = useSelector(store => store.feedbackReducer.feeling);
 
     const handleFeelingSubmit = (event) => {
         event.preventDefault();
@@ -21,7 +23,7 @@ function Feeling() {
             <form onSubmit={handleFeelingSubmit}>
                 <input 
                     required 
-                    placeholder="Choose 1-5" 
+                    placeholder={feelingState ? feelingState : 'Choose 1-5'} 
                     value={feelingVal}
                     onChange={(event) => setFeelingVal(event.target.value)}
                 />

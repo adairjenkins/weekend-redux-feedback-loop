@@ -1,11 +1,13 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Comments() {
     const history = useHistory(); 
     const [commentsVal, setCommentsVal] = useState('');
     const dispatch = useDispatch();
+
+    const commentsState = useSelector(store => store.feedbackReducer.comments);
 
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
@@ -24,7 +26,7 @@ function Comments() {
             <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleCommentsSubmit}>
                 <input
-                    placeholder="Type something here" 
+                    placeholder={commentsState ? commentsState : 'Please add any additional feedback'} 
                     value={commentsVal}
                     onChange={(event) => setCommentsVal(event.target.value)}
                 />

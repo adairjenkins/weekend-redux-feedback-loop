@@ -1,11 +1,13 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Understanding() {
     const history = useHistory();
     const [understandingVal, setUnderstandingVal] = useState('');
     const dispatch = useDispatch();
+
+    const understandingState = useSelector(store => store.feedbackReducer.understanding);
 
     const handleUnderstandingSubmit = (event) => {
         event.preventDefault();
@@ -25,7 +27,7 @@ function Understanding() {
             <form onSubmit={handleUnderstandingSubmit}>
                 <input 
                     required 
-                    placeholder="Choose 1-5" 
+                    placeholder={understandingState ? understandingState : 'Choose 1-5'} 
                     value={understandingVal}
                     onChange={(event) => setUnderstandingVal(event.target.value)}
                 />
