@@ -22,7 +22,7 @@ function Comments() {
 
     return (
         <>
-            <h3>COMMENTS COMPONENT</h3>
+            <h3>COMMENTS</h3>
             <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleCommentsSubmit}>
                 <input

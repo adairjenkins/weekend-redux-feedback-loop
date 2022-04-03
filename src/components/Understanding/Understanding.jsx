@@ -22,7 +22,7 @@ function Understanding() {
 
     return (
         <>
-            <h3>UNDERSTANDING COMPONENT</h3>
+            <h3>UNDERSTANDING</h3>
             <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleUnderstandingSubmit}>
                 <input 

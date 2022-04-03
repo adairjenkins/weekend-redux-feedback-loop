@@ -24,7 +24,7 @@ function Review() {
 
     return (
         <>
-            <h3>REVIEW COMPONENT</h3>
+            <h3>Review your feedback</h3>
             <button onClick={handleBackBtn}>BACK</button>
             <table>
                 <thead>

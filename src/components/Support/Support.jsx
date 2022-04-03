@@ -22,7 +22,7 @@ function Support() {
 
     return (
         <>
-            <h3>SUPPORT COMPONENT</h3>
+            <h3>SUPPORT</h3>
             <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleSupportSubmit}>
                 <input 

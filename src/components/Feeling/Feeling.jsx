@@ -19,7 +19,7 @@ function Feeling() {
  
     return (
         <>
-            <h3>FEELING COMPONENT</h3>
+            <h3>FEELING</h3>
             <form onSubmit={handleFeelingSubmit}>
                 <input 
                     required 

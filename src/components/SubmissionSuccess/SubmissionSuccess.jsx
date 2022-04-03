@@ -13,7 +13,7 @@ function SubmissionSuccess() {
     
     return (
         <>
-            <h3>SUBMISSION SUCCESS COMPONENT</h3>
+            <h3>SUBMISSION SUCCESS</h3>
             <button onClick={startOver}>START OVER</button>
         </>
     )
