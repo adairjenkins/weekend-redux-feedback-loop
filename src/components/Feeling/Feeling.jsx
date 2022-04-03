@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import NextButton from '../NextButton/NextButton';
 
 
 function Feeling() {
@@ -27,9 +28,10 @@ function Feeling() {
                     value={feelingVal}
                     onChange={(event) => setFeelingVal(event.target.value)}
                 />
-                <button type="submit">
+                {/* <button type="submit">
                     NEXT
-                </button>
+                </button> */}
+                < NextButton/>
             </form>
         </>
     )

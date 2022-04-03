@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import BackButton from '../BackButton/BackButton';
+import Button from '@material-ui/core/Button';
 
 function Review() {
     const history = useHistory();
@@ -25,7 +27,7 @@ function Review() {
     return (
         <>
             <h3>Review your feedback</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            <BackButton handleBackBtn={handleBackBtn}/>
             <table>
                 <thead>
                     <tr>
@@ -45,7 +47,7 @@ function Review() {
                 </tbody>
             </table>
 
-            <button onClick={handleSubmission}>SUBMIT</button>
+            <Button onClick={handleSubmission}>SUBMIT</Button>
         </>
     )
 }

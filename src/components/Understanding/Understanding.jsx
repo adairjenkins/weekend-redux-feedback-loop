@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import NextButton from '../NextButton/NextButton';
+import BackButton from '../BackButton/BackButton';
 
 function Understanding() {
     const history = useHistory();
@@ -23,7 +25,7 @@ function Understanding() {
     return (
         <>
             <h3>UNDERSTANDING</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            <BackButton handleBackBtn={handleBackBtn}/>
             <form onSubmit={handleUnderstandingSubmit}>
                 <input 
                     required 
@@ -32,7 +34,7 @@ function Understanding() {
                     onChange={(event) => setUnderstandingVal(event.target.value)}
                 />
                 <br/>
-                <button type="submit">NEXT</button>
+                <NextButton/>
             </form>
         </>
     )

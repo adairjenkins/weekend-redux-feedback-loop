@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Start from  '../Start/Start';

@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import NextButton from '../NextButton/NextButton';
+import BackButton from '../BackButton/BackButton';
 
 function Comments() {
     const history = useHistory(); 
@@ -23,7 +25,7 @@ function Comments() {
     return (
         <>
             <h3>COMMENTS</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            <BackButton handleBackBtn={handleBackBtn}/>
             <form onSubmit={handleCommentsSubmit}>
                 <input
                     placeholder={commentsState ? commentsState : 'Please add any additional feedback'} 
@@ -31,7 +33,7 @@ function Comments() {
                     onChange={(event) => setCommentsVal(event.target.value)}
                 />
                 <br/>
-                <button type="submit">NEXT</button>
+                < NextButton/>
             </form>
         </>
     )

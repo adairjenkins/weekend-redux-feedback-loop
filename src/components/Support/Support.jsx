@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import BackButton from '../BackButton/BackButton';
+import NextButton from '../NextButton/NextButton';
 
 function Support() {
     const history = useHistory();
@@ -23,7 +25,7 @@ function Support() {
     return (
         <>
             <h3>SUPPORT</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            < BackButton handleBackBtn={handleBackBtn}/>
             <form onSubmit={handleSupportSubmit}>
                 <input 
                     required 
@@ -32,7 +34,7 @@ function Support() {
                     onChange={(event) => setSupportVal(event.target.value)}
                 />
                 <br/>
-                <button type="submit">NEXT</button>
+                <NextButton/>
             </form>
         </>
     )
