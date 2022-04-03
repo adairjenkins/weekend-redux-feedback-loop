@@ -1,13 +1,16 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 function Comments() {
     const history = useHistory(); 
     const [commentsVal, setCommentsVal] = useState('');
+    const dispatch = useDispatch();
 
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
         console.log('handleCommentsSubmit func');
+        dispatch({type: 'ADD_COMMENTS', payload: commentsVal})
         history.push('/review')
     }
 
