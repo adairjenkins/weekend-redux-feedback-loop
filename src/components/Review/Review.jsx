@@ -1,10 +1,22 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 function Review() {
     const history = useHistory();
 
     const feedback = useSelector(store => store.feedbackReducer)
+
+    const handleSubmission = () => {
+        console.log('handleSubmission func');
+        axios.post('/feedback', feedback)
+        .then(response => {
+            history.push('/submission-success')
+        })
+        .catch(error => {
+            console.log('error in post', error);
+        });
+    }
 
     return (
         <>
@@ -28,7 +40,7 @@ function Review() {
                 </tbody>
             </table>
 
-            <button onClick={() => history.push('/submission-success')}>SUBMIT</button>
+            <button onClick={handleSubmission}>SUBMIT</button>
         </>
     )
 }
