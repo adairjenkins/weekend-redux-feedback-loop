@@ -18,6 +18,14 @@ function Review() {
                         <th>COMMENTS</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>{feedback.feeling}</td>
+                        <td>{feedback.understanding}</td>
+                        <td>{feedback.support}</td>
+                        <td>{feedback.comments}</td>
+                    </tr>
+                </tbody>
             </table>
 
             <button onClick={() => history.push('/submission-success')}>SUBMIT</button>
