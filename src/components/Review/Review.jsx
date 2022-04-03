@@ -18,9 +18,14 @@ function Review() {
         });
     }
 
+    const handleBackBtn = () => {
+        history.push('/comments');
+    }
+
     return (
         <>
             <h3>REVIEW COMPONENT</h3>
+            <button onClick={handleBackBtn}>BACK</button>
             <table>
                 <thead>
                     <tr>

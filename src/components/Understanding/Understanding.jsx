@@ -14,9 +14,14 @@ function Understanding() {
         history.push('/support')
     }
 
+    const handleBackBtn = () => {
+        history.push('/feeling');
+    }
+
     return (
         <>
             <h3>UNDERSTANDING COMPONENT</h3>
+            <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleUnderstandingSubmit}>
                 <input 
                     required 
@@ -24,9 +29,8 @@ function Understanding() {
                     value={understandingVal}
                     onChange={(event) => setUnderstandingVal(event.target.value)}
                 />
-                <button type="submit">
-                    NEXT
-                </button>
+                <br/>
+                <button type="submit">NEXT</button>
             </form>
         </>
     )

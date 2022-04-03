@@ -14,9 +14,14 @@ function Support() {
         history.push('/comments')
     }
 
+    const handleBackBtn = () => {
+        history.push('/understanding');
+    }
+
     return (
         <>
             <h3>SUPPORT COMPONENT</h3>
+            <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleSupportSubmit}>
                 <input 
                     required 
@@ -24,9 +29,8 @@ function Support() {
                     value={supportVal}
                     onChange={(event) => setSupportVal(event.target.value)}
                 />
-                <button type="submit">
-                    NEXT
-                </button>
+                <br/>
+                <button type="submit">NEXT</button>
             </form>
         </>
     )

@@ -14,19 +14,22 @@ function Comments() {
         history.push('/review')
     }
 
+    const handleBackBtn = () => {
+        history.push('/support');
+    }
+
     return (
         <>
             <h3>COMMENTS COMPONENT</h3>
+            <button onClick={handleBackBtn}>BACK</button>
             <form onSubmit={handleCommentsSubmit}>
-                <input 
-                    required 
+                <input
                     placeholder="Type something here" 
                     value={commentsVal}
                     onChange={(event) => setCommentsVal(event.target.value)}
                 />
-                <button type="submit">
-                    NEXT
-                </button>
+                <br/>
+                <button type="submit">NEXT</button>
             </form>
         </>
     )
