@@ -30,6 +30,9 @@ const feedbackReducer = (state = {}, action) => {
                 ...state,
                 comments: action.payload
             }
+        case 'RESET':
+            return {};
+        
         default:
             return state;
     }
