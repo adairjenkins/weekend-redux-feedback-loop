@@ -1,15 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 function UserInput() {
-    const feelingState = useSelector(store => store.feedbackReducer.feeling);
+    const dispatch = useDispatch();
+    const [userInput, setUserInput] = useState('');
+
     
     return (
-        <input 
-        required 
-        placeholder={feelingState ? feelingState : 'Choose 1-5'} 
-        value={feelingVal}
-        onChange={(event) => setFeelingVal(event.target.value)}
-        />
+        <form onSubmit={handleUserInput}>    
+            <input 
+            required 
+            placeholder={feelingState ? feelingState : 'Choose 1-5'} 
+            value={feelingVal}
+            onChange={(event) => setFeelingVal(event.target.value)}
+            />
+        </form>
 
     )
 }

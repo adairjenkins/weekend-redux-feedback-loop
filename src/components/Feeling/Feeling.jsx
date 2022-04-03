@@ -1,18 +1,18 @@
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import UserInput from '../UserInput/UserInput';
 
 
 function Feeling() {
     const history = useHistory();
-    const [feelingVal, setFeelingVal] = useState('');
     const dispatch = useDispatch();
 
+    const inputState = useSelector(store => store.inputReducer);
+    
     const handleFeelingSubmit = (event) => {
         event.preventDefault();
         console.log('handleFeelingSubmit func');
-        dispatch({type: 'ADD_FEELING', payload: feelingVal})
+        dispatch({type: 'ADD_FEELING', payload: inputState})
         history.push('/understanding')
     }
  
