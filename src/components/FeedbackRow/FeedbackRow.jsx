@@ -10,6 +10,8 @@ function FeedbackRow({feedbackItem}) {
         <TableCell>{feedbackItem.understanding}</TableCell>
         <TableCell>{feedbackItem.support}</TableCell>
         <TableCell>{feedbackItem.comments}</TableCell>
+        <TableCell>DELETE!</TableCell>
+
     </TableRow>
     )
 }
