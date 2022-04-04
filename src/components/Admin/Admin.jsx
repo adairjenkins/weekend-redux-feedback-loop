@@ -6,9 +6,25 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 function Admin() {
+    useEffect(() => {
+        getFeedback();
+      }, []);
     
+      const dispatch = useDispatch();
+    
+      const getFeedback = () => {
+        //selects * from feedback table in database:
+        axios.get('/feedback')
+          .then(response => {
+            dispatch({ type: 'GET_ALL_FEEDBACK', payload: response.data })
+          })
+          .catch((error) => {
+            console.log('error getting feedback from database: ', error);
+          })
+      }
     
     return (
         <>
@@ -25,10 +41,10 @@ function Admin() {
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell><Rating name="read-only" value={feedback.feeling} readOnly /></TableCell>
-                        <TableCell><Rating name="read-only" value={feedback.understanding} readOnly /></TableCell>
-                        <TableCell><Rating name="read-only" value={feedback.support} readOnly /></TableCell>
-                        <TableCell>{feedback.comments}</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
