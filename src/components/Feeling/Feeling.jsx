@@ -2,8 +2,9 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NextButton from '../NextButton/NextButton';
-import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 
 function Feeling() {
@@ -23,17 +24,20 @@ function Feeling() {
     return (
         <>
             <h3>How are you feeling today?</h3>
-            <form onSubmit={handleFeelingSubmit}>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Rating
-                    required
-                    name="simple-controlled"
+            <form onSubmit={handleFeelingSubmit} aria-required="true"> 
+                <Select
+                    required={true}
                     value={feelingVal}
-                    onChange={(event, newValue) => {
-                        setFeelingVal(newValue);
+                    onChange={(event) => {
+                        setFeelingVal(event.target.value);
                     }}
-                    />
-                </Box>
+                    >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                </Select>
                 < NextButton/>
             </form>
         </>
