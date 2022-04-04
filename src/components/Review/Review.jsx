@@ -1,6 +1,15 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import BackButton from '../BackButton/BackButton';
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Rating from '@material-ui/lab/Rating';
 
 function Review() {
     const history = useHistory();
@@ -24,28 +33,29 @@ function Review() {
 
     return (
         <>
-            <h3>REVIEW COMPONENT</h3>
-            <button onClick={handleBackBtn}>BACK</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>FEELING</th>
-                        <th>UNDERSTANDING</th>
-                        <th>SUPPORT</th>
-                        <th>COMMENTS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{feedback.feeling}</td>
-                        <td>{feedback.understanding}</td>
-                        <td>{feedback.support}</td>
-                        <td>{feedback.comments}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <button onClick={handleSubmission}>SUBMIT</button>
+            <h3>Please review your feedback</h3>
+            <BackButton handleBackBtn={handleBackBtn}/>
+            <TableContainer>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Feeling</TableCell>
+                        <TableCell>Understanding</TableCell>
+                        <TableCell>Support</TableCell>
+                        <TableCell>Comments</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell><Rating name="read-only" value={feedback.feeling} readOnly /></TableCell>
+                        <TableCell><Rating name="read-only" value={feedback.understanding} readOnly /></TableCell>
+                        <TableCell><Rating name="read-only" value={feedback.support} readOnly /></TableCell>
+                        <TableCell>{feedback.comments}</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+            </TableContainer>
+            <Button onClick={handleSubmission}>SUBMIT</Button>
         </>
     )
 }

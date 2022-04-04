@@ -1,6 +1,10 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import BackButton from '../BackButton/BackButton';
+import NextButton from '../NextButton/NextButton';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 function Support() {
     const history = useHistory();
@@ -22,17 +26,19 @@ function Support() {
 
     return (
         <>
-            <h3>SUPPORT COMPONENT</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            <h3>How well supported did you feel today?</h3>
+            < BackButton handleBackBtn={handleBackBtn}/>
             <form onSubmit={handleSupportSubmit}>
-                <input 
-                    required 
-                    placeholder={supportState ? supportState : 'Choose 1-5'} 
+                <Box component="fieldset" mb={3} borderColor="transparent">
+                    <Rating
+                    name="simple-controlled"
                     value={supportVal}
-                    onChange={(event) => setSupportVal(event.target.value)}
-                />
-                <br/>
-                <button type="submit">NEXT</button>
+                    onChange={(event, newValue) => {
+                        setSupportVal(newValue);
+                    }}
+                    />
+                </Box>
+                <NextButton/>
             </form>
         </>
     )

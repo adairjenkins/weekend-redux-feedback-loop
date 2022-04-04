@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 function Start() {
     const history = useHistory();
@@ -6,7 +7,7 @@ function Start() {
     return (
         <> 
             <p>Please take a few minutes to complete feedback for the day.</p>
-            <button onClick={() => history.push('/feeling')}>BEGIN</button>
+            <Button onClick={() => history.push('/feeling')}>BEGIN</Button>
         </>
     )
 }

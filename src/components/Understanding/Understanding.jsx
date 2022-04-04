@@ -1,6 +1,11 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import NextButton from '../NextButton/NextButton';
+import BackButton from '../BackButton/BackButton';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+
 
 function Understanding() {
     const history = useHistory();
@@ -22,17 +27,19 @@ function Understanding() {
 
     return (
         <>
-            <h3>UNDERSTANDING COMPONENT</h3>
-            <button onClick={handleBackBtn}>BACK</button>
+            <BackButton handleBackBtn={handleBackBtn}/>
+            <h3>How well are you understanding the content?</h3>
             <form onSubmit={handleUnderstandingSubmit}>
-                <input 
-                    required 
-                    placeholder={understandingState ? understandingState : 'Choose 1-5'} 
+                <Box component="fieldset" mb={3} borderColor="transparent">
+                    <Rating
+                    name="simple-controlled"
                     value={understandingVal}
-                    onChange={(event) => setUnderstandingVal(event.target.value)}
-                />
-                <br/>
-                <button type="submit">NEXT</button>
+                    onChange={(event, newValue) => {
+                        setUnderstandingVal(newValue);
+                    }}
+                    />
+                </Box>
+                <NextButton/>
             </form>
         </>
     )

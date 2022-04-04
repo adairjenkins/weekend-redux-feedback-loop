@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 function SubmissionSuccess() {
     const history = useHistory();
@@ -13,8 +14,8 @@ function SubmissionSuccess() {
     
     return (
         <>
-            <h3>SUBMISSION SUCCESS COMPONENT</h3>
-            <button onClick={startOver}>START OVER</button>
+            <h3>SUBMISSION SUCCESS</h3>
+            <Button onClick={startOver}>START OVER</Button>
         </>
     )
 }
