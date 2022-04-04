@@ -26,6 +26,7 @@ function Feeling() {
             <form onSubmit={handleFeelingSubmit}>
                 <Box component="fieldset" mb={3} borderColor="transparent">
                     <Rating
+                    required
                     name="simple-controlled"
                     value={feelingVal}
                     onChange={(event, newValue) => {
