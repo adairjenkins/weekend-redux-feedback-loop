@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
     });
 })
 
-router.delete()
+//TO-DO
+// router.delete()
 
 module.exports = router;
