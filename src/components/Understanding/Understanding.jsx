@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NextButton from '../NextButton/NextButton';
 import BackButton from '../BackButton/BackButton';
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 
 function Understanding() {
     const history = useHistory();
@@ -34,6 +38,16 @@ function Understanding() {
                     onChange={(event) => setUnderstandingVal(event.target.value)}
                 />
                 <br/>
+                <Box component="fieldset" mb={3} borderColor="transparent">
+                    <Typography component="legend">Controlled</Typography>
+                    <Rating
+                    name="simple-controlled"
+                    value={understandingVal}
+                    onChange={(event, newValue) => {
+                        setUnderstandingVal(newValue);
+                    }}
+                    />
+                </Box>
                 <NextButton/>
             </form>
         </>
