@@ -11,6 +11,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Rating from '@material-ui/lab/Rating';
 
 function Review() {
     const history = useHistory();
@@ -47,9 +48,9 @@ function Review() {
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell>{feedback.feeling}</TableCell>
-                        <TableCell>{feedback.understanding}</TableCell>
-                        <TableCell>{feedback.support}</TableCell>
+                        <TableCell><Rating name="read-only" value={feedback.feeling} readOnly /></TableCell>
+                        <TableCell><Rating name="read-only" value={feedback.understanding} readOnly /></TableCell>
+                        <TableCell><Rating name="read-only" value={feedback.support} readOnly /></TableCell>
                         <TableCell>{feedback.comments}</TableCell>
                     </TableRow>
                 </TableBody>
