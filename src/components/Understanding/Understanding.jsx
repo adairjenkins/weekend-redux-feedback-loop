@@ -32,6 +32,7 @@ function Understanding() {
             <form onSubmit={handleUnderstandingSubmit}>
                 <Box component="fieldset" mb={3} borderColor="transparent">
                     <Rating
+                    aria-required
                     name="simple-controlled"
                     value={understandingVal}
                     onChange={(event, newValue) => {
