@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NextButton from '../NextButton/NextButton';
 import BackButton from '../BackButton/BackButton';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 function Comments() {
     const history = useHistory(); 
@@ -14,8 +16,12 @@ function Comments() {
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
         console.log('handleCommentsSubmit func');
-        dispatch({type: 'ADD_COMMENTS', payload: commentsVal})
+        // prevent navigating backward from erasing previous state unless the user enters new input
+        if (commentsVal) {
+            dispatch({type: 'ADD_COMMENTS', payload: commentsVal})
+        } 
         history.push('/review')
+        setCommentsVal('');
     }
 
     const handleBackBtn = () => {
@@ -24,15 +30,15 @@ function Comments() {
 
     return (
         <>
-            <h3>COMMENTS</h3>
             <BackButton handleBackBtn={handleBackBtn}/>
+            <h3>Would you like to add any additional comments?</h3>
             <form onSubmit={handleCommentsSubmit}>
-                <input
-                    placeholder={commentsState ? commentsState : 'Please add any additional feedback'} 
+                 <TextField 
+                    id="outlined-basic" 
+                    label={commentsState ? commentsState : 'Feedback'} 
+                    variant="outlined"
                     value={commentsVal}
-                    onChange={(event) => setCommentsVal(event.target.value)}
-                />
-                <br/>
+                    onChange={(event) => setCommentsVal(event.target.value)}/>
                 < NextButton/>
             </form>
         </>

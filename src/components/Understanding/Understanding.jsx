@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import NextButton from '../NextButton/NextButton';
 import BackButton from '../BackButton/BackButton';
 import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 
@@ -28,18 +27,10 @@ function Understanding() {
 
     return (
         <>
-            <h3>UNDERSTANDING</h3>
             <BackButton handleBackBtn={handleBackBtn}/>
+            <h3>How well are you understanding the content?</h3>
             <form onSubmit={handleUnderstandingSubmit}>
-                <input 
-                    required 
-                    placeholder={understandingState ? understandingState : 'Choose 1-5'} 
-                    value={understandingVal}
-                    onChange={(event) => setUnderstandingVal(event.target.value)}
-                />
-                <br/>
                 <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Typography component="legend">Controlled</Typography>
                     <Rating
                     name="simple-controlled"
                     value={understandingVal}

@@ -26,15 +26,15 @@ function Review() {
 
     return (
         <>
-            <h3>Review your feedback</h3>
+            <h3>Please review your feedback</h3>
             <BackButton handleBackBtn={handleBackBtn}/>
             <table>
                 <thead>
                     <tr>
-                        <th>FEELING</th>
-                        <th>UNDERSTANDING</th>
-                        <th>SUPPORT</th>
-                        <th>COMMENTS</th>
+                        <th>Feeling</th>
+                        <th>Understanding</th>
+                        <th>Support</th>
+                        <th>Comments</th>
                     </tr>
                 </thead>
                 <tbody>
