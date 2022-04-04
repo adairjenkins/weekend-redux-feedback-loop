@@ -38,9 +38,17 @@ const feedbackReducer = (state = {}, action) => {
     }
 }
 
+const adminViewReducer = (state = [], action) => {
+    if (action.type === 'GET_ALL_FEEDBACK') {
+        return action.payload;
+    }
+    return state;
+}
+
 const store = createStore(
     combineReducers({
-        feedbackReducer
+        feedbackReducer,
+        adminViewReducer
     }),
     applyMiddleware(logger)
 );
