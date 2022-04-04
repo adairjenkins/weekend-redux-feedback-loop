@@ -25,17 +25,8 @@ function Feeling() {
         <>
             <h3>How are you feeling today?</h3>
             <form onSubmit={handleFeelingSubmit} aria-required="true"> 
-                    {/* <Rating
-                    aria-required="true"
-                    name="simple-controlled"
-                    value={feelingVal}
-                    onChange={(event, newValue) => {
-                        setFeelingVal(newValue);
-                    }}
-                    /> */}
-    
                 <Select
-                    required="true"
+                    required={true}
                     value={feelingVal}
                     onChange={(event) => {
                         setFeelingVal(event.target.value);

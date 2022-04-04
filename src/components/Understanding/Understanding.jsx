@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NextButton from '../NextButton/NextButton';
 import BackButton from '../BackButton/BackButton';
-import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 function Understanding() {
@@ -30,16 +30,19 @@ function Understanding() {
             <BackButton handleBackBtn={handleBackBtn}/>
             <h3>How well are you understanding the content?</h3>
             <form onSubmit={handleUnderstandingSubmit}>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Rating
-                    aria-required
-                    name="simple-controlled"
+            <Select
+                    required={true}
                     value={understandingVal}
-                    onChange={(event, newValue) => {
-                        setUnderstandingVal(newValue);
+                    onChange={(event) => {
+                        setUnderstandingVal(event.target.value);
                     }}
-                    />
-                </Box>
+                    >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                </Select>
                 <NextButton/>
             </form>
         </>

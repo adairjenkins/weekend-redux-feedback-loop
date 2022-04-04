@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BackButton from '../BackButton/BackButton';
 import NextButton from '../NextButton/NextButton';
-import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function Support() {
     const history = useHistory();
@@ -29,15 +29,19 @@ function Support() {
             <h3>How well supported did you feel today?</h3>
             < BackButton handleBackBtn={handleBackBtn}/>
             <form onSubmit={handleSupportSubmit}>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Rating
-                    name="simple-controlled"
+            <Select
+                    required={true}
                     value={supportVal}
-                    onChange={(event, newValue) => {
-                        setSupportVal(newValue);
+                    onChange={(event) => {
+                        setSupportVal(event.target.value);
                     }}
-                    />
-                </Box>
+                    >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                </Select>
                 <NextButton/>
             </form>
         </>
