@@ -51,6 +51,7 @@ function Admin() {
                             < FeedbackRow
                                 key={feedbackItem.id}
                                 feedbackItem={feedbackItem}
+                                getFeedback={getFeedback}
                             />
                         )
                     })}
