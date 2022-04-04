@@ -2,6 +2,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import axios from 'axios';
+import swal from 'sweetalert';
+
 
 function FeedbackRow({feedbackItem, getFeedback}) {
     
@@ -17,6 +19,20 @@ function FeedbackRow({feedbackItem, getFeedback}) {
             })
     }
 
+    const alert = () => {
+        swal({
+            title: "Are you sure?",
+            text: "This user's feedback will be permanently deleted.",
+            icon: "warning",
+            buttons: [true, 'Delete'],
+            dangerMode: true
+        }).then( function(clickedDelete) {
+                if (clickedDelete) {
+                deleteRow()
+                }
+            })  
+    }
+
     return (
     <TableRow>
         <TableCell>{feedbackItem.id}</TableCell>
@@ -25,7 +41,7 @@ function FeedbackRow({feedbackItem, getFeedback}) {
         <TableCell>{feedbackItem.understanding}</TableCell>
         <TableCell>{feedbackItem.support}</TableCell>
         <TableCell>{feedbackItem.comments}</TableCell>
-        <TableCell><DeleteForeverIcon onClick={deleteRow}/></TableCell>
+        <TableCell><DeleteForeverIcon onClick={alert}/></TableCell>
 
     </TableRow>
     )
